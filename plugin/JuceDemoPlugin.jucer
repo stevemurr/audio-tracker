@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="0nRd9LLGO" name="JuceDemoPlugin" projectType="audioplug"
+              version="1.0.0" juceLinkage="amalg_multi" buildVST="0" buildRTAS="0"
+              buildAU="1" pluginName="Juce Demo Plugin" pluginDesc="Juce Demo Plugin"
+              pluginManufacturer="ROLI Ltd." pluginManufacturerCode="ROLI"
+              pluginCode="Jcdm" pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="1"
+              pluginProducesMidiOut="1" pluginSilenceInIsSilenceOut="0" pluginTailLength="0"
+              pluginEditorRequiresKeys="1" pluginAUExportPrefix="JuceDemoProjectAU"
+              pluginAUViewClass="JuceDemoProjectAU_V1" pluginRTASCategory=""
+              bundleIdentifier="com.juce.JuceDemoPlugin" jucerVersion="5.0.2"
+              companyName="ROLI Ltd." aaxIdentifier="com.yourcompany.JuceDemoPlugin"
+              buildAAX="0" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
+              includeBinaryInAppConfig="1" buildVST3="0" pluginManufacturerEmail="support@yourcompany.com"
+              companyWebsite="www.juce.com" companyEmail="info@juce.com" pluginIsMidiEffectPlugin="0"
+              buildAUv3="0" buildStandalone="0" enableIAA="0" displaySplashScreen="1"
+              reportAppUsage="1" splashScreenColour="Dark">
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="" rtasFolder="~/SDKs/PT_80_SDK"
+               objCExtraSuffix="JuceDemo" aaxFolder="" postbuildCommand="" vst3Folder=""
+               extraLinkerFlags="" extraCompilerFlags="-DUSE_ACCELERATE_FFT">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="JuceDemoPlugin"
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="64BitUniversal"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="JuceDemoPlugin"
+                       osxSDK="default" osxCompatibility="default" osxArchitecture="64BitUniversal"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../modules"/>
+        <MODULEPATH id="juce_events" path="../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../modules"/>
+        <MODULEPATH id="juce_core" path="../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../modules"/>
+        <MODULEPATH id="audio_fft" path="../../../../Users/murr/audio"/>
+        <MODULEPATH id="pitch_detector" path="../../../../Users/murr/audio"/>
+        <MODULEPATH id="Gist" path="../../../../Users/murr/audio"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MAINGROUP id="dYAMo6Ykd" name="JuceDemoPlugin">
+    <GROUP id="{5E8102F7-E78F-018D-4206-3A9A85A766E1}" name="RestRequest">
+      <FILE id="O8dwhw" name="RestRequest.h" compile="1" resource="0" file="/Users/murr/audio/RestRequest/Source/RestRequest.h"/>
+    </GROUP>
+    <GROUP id="{F24D9D2D-DD72-0AED-C805-398D1BD63820}" name="Gist">
+      <GROUP id="{B0A7087D-1746-F597-E127-5EC2684458ED}" name="core">
+        <FILE id="jy45Bh" name="CoreFrequencyDomainFeatures.cpp" compile="1"
+              resource="0" file="/Users/murr/audio/Gist_src/src/core/CoreFrequencyDomainFeatures.cpp"/>
+        <FILE id="enNtq5" name="CoreFrequencyDomainFeatures.h" compile="0"
+              resource="0" file="/Users/murr/audio/Gist_src/src/core/CoreFrequencyDomainFeatures.h"/>
+        <FILE id="ZKepsc" name="CoreTimeDomainFeatures.cpp" compile="1" resource="0"
+              file="/Users/murr/audio/Gist_src/src/core/CoreTimeDomainFeatures.cpp"/>
+        <FILE id="BY2Nes" name="CoreTimeDomainFeatures.h" compile="0" resource="0"
+              file="/Users/murr/audio/Gist_src/src/core/CoreTimeDomainFeatures.h"/>
+      </GROUP>
+      <GROUP id="{0A820E7E-885D-CAF3-0E8D-C33973ED19B1}" name="fft">
+        <FILE id="PZULD6" name="AccelerateFFT.cpp" compile="1" resource="0"
+              file="/Users/murr/audio/Gist_src/src/fft/AccelerateFFT.cpp"/>
+        <FILE id="qwWAxC" name="AccelerateFFT.h" compile="0" resource="0" file="/Users/murr/audio/Gist_src/src/fft/AccelerateFFT.h"/>
+        <FILE id="dBYSXq" name="WindowFunctions.cpp" compile="1" resource="0"
+              file="/Users/murr/audio/Gist_src/src/fft/WindowFunctions.cpp"/>
+        <FILE id="eMJ32y" name="WindowFunctions.h" compile="0" resource="0"
+              file="/Users/murr/audio/Gist_src/src/fft/WindowFunctions.h"/>
+      </GROUP>
+      <FILE id="v2PsQx" name="Gist.cpp" compile="1" resource="0" file="/Users/murr/audio/Gist_src/src/Gist.cpp"/>
+      <FILE id="flgM5N" name="Gist.h" compile="0" resource="0" file="/Users/murr/audio/Gist_src/src/Gist.h"/>
+      <GROUP id="{0CB12FF1-7906-BE77-11AE-7686E48153FF}" name="mfcc">
+        <FILE id="Mu4GXV" name="MFCC.cpp" compile="1" resource="0" file="/Users/murr/audio/Gist_src/src/mfcc/MFCC.cpp"/>
+        <FILE id="EH7jrH" name="MFCC.h" compile="0" resource="0" file="/Users/murr/audio/Gist_src/src/mfcc/MFCC.h"/>
+      </GROUP>
+      <GROUP id="{A58BD792-0242-4D77-E713-F13E655797F5}" name="onset-detection-functions">
+        <FILE id="DGQ0kk" name="OnsetDetectionFunction.cpp" compile="1" resource="0"
+              file="/Users/murr/audio/Gist_src/src/onset-detection-functions/OnsetDetectionFunction.cpp"/>
+        <FILE id="sPaEvN" name="OnsetDetectionFunction.h" compile="0" resource="0"
+              file="/Users/murr/audio/Gist_src/src/onset-detection-functions/OnsetDetectionFunction.h"/>
+      </GROUP>
+      <GROUP id="{412559BE-F0FC-A31E-6DFB-CB499CEB320B}" name="pitch">
+        <FILE id="w6sD5O" name="Yin.cpp" compile="1" resource="0" file="/Users/murr/audio/Gist_src/src/pitch/Yin.cpp"/>
+        <FILE id="Z0jCGC" name="Yin.h" compile="0" resource="0" file="/Users/murr/audio/Gist_src/src/pitch/Yin.h"/>
+      </GROUP>
+    </GROUP>
+    <FILE id="RCFlkTAef" name="PluginEditor.cpp" compile="1" resource="0"
+          file="Source/PluginEditor.cpp"/>
+    <FILE id="Iif5nfHL" name="PluginEditor.h" compile="0" resource="0"
+          file="Source/PluginEditor.h"/>
+    <FILE id="gFFr0hbSp" name="PluginProcessor.cpp" compile="1" resource="0"
+          file="Source/PluginProcessor.cpp"/>
+    <FILE id="PkpMNdnIr" name="PluginProcessor.h" compile="0" resource="0"
+          file="Source/PluginProcessor.h"/>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled" JUCE_PLUGINHOST_VST="disabled" JUCE_PLUGINHOST_AU="disabled"/>
+  <MODULES>
+    <MODULE id="audio_fft" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="Gist" showAllCode="1" useLocalCopy="1"/>
+    <MODULE id="juce_audio_basics" showAllCode="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_core" showAllCode="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1"/>
+    <MODULE id="juce_events" showAllCode="1"/>
+    <MODULE id="juce_graphics" showAllCode="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="pitch_detector" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <LIVE_SETTINGS>
+    <OSX extraCompilerFlags="" systemHeaderPath="&#10;" headerPath="/usr/local/include"
+         extraDLLs=""/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
