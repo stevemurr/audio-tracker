@@ -1,0 +1,3 @@
+[submodule "AudioTrackerCLAP/clap"]
+	path = AudioTrackerCLAP/clap
+	url = https://github.com/free-audio/clap.git

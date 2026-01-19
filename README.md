@@ -1,38 +1,58 @@
 # Audio Tracker
 
-This repository is really three parts.  
+Real-time audio analysis system for monitoring metrics during DAW recording sessions.
 
-1. The audio plugin built with JUCE.
-2. The web server that accepts post request made by the audio plugin.
-3. The web frontend that queries the server and graphs the results.
+## Components
 
-The idea roughly is you can monitor audio metrics of a track that is being recorded remotely.
+1. **CLAP Audio Plugin** (`AudioTrackerCLAP/`) - C++ plugin using macOS Accelerate framework for FFT analysis
+2. **Go Server** (`main.go`) - HTTP server accepting metrics from the plugin
+3. **React Frontend** (`app/`) - Chart.js visualization polling the server
 
-# Installation
+## Installation
 
-`brew install golang`  
-`brew install yarn`
+```bash
+# Install dependencies
+brew install golang yarn
 
-There may be some deps i'm missing :)
+# Build and install the CLAP plugin
+cd AudioTrackerCLAP
+make
+sudo make install  # Installs to /Library/Audio/Plug-Ins/CLAP/
 
-You will likely have to run projucer and click "Save and open in IDE".  Xcode will open - then run the build.  After the build succeeds you can open your DAW.
+# Run the Go server
+go run main.go
 
-**Note: Only AU is built but you can turn the other targets on in projcuer.
+# Run the frontend
+cd app && yarn install && yarn start
+```
 
-Run the server with `go run main.go`
+## Usage
 
-Run the frontend by moving into the app folder and executing `yarn start`
+1. Start the Go server first: `go run main.go`
+2. Open your DAW (Bitwig, etc.) and add "AudioTracker" as an effect on the track you want to analyze
+3. Play audio - metrics are streamed every 100ms to the server
+4. Open `http://localhost:3000` to view the live chart
 
-# Usage
+## Audio Metrics
 
-1. Add the plugin to the audio channel you want to measure.
-2. Hit play
-3. When the `silenceHeard` threshold is met, the mean measurement for all props will be sent to the server.  
+The plugin computes:
+- **F0**: Fundamental frequency (pitch) via FFT peak detection, 60-600 Hz range
+- **RMS**: Root mean square energy in dB
+- **Spectral Centroid**: Brightness measure from FFT magnitudes
 
-# Props
+## API Endpoints
 
-I made use of MANY other great repos.  They are listed here:
+- `GET /api/audio` - Returns all stored audio data as JSON array
+- `POST /api/audio` - Accepts audio metrics JSON from plugin
+- `GET /api/audio/chart` - Returns Chart.js-formatted data
 
-1. JUCE - https://www.juce.com/
-2. https://github.com/adamski/RestRequest
-3. Gist - https://github.com/adamstark/Gist
+## Legacy
+
+- JUCE AU plugin available in `plugin/` folder
+- Swift AU v3 implementation on `legacy/swift` branch
+
+## Credits
+
+- [CLAP](https://github.com/free-audio/clap) - Audio plugin standard
+- [JUCE](https://www.juce.com/) - Original plugin framework
+- [Gist](https://github.com/adamstark/Gist) - Audio analysis library (legacy)
