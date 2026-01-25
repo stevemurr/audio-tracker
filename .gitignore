@@ -1,0 +1,50 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Xcode
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+DerivedData/
+
+# Build artifacts
+build/
+*.o
+*.a
+*.dylib
+*.so
+*.clap
+
+# Plugin build outputs
+*.app/
+*.appex/
+*.component/
+*.vst/
+*.vst3/
+*.au/
+
+# Go
+*.exe
+*.exe~
+*.dll
+*.test
+*.out
+
+# Node.js (app/ has its own .gitignore, but these are good defaults)
+node_modules/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.local
+.env.*.local
