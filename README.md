@@ -6,13 +6,13 @@ Real-time audio analysis system for monitoring metrics during DAW recording sess
 
 1. **CLAP Audio Plugin** (`AudioTrackerCLAP/`) - C++ plugin using macOS Accelerate framework for FFT analysis
 2. **Go Server** (`main.go`) - HTTP server accepting metrics from the plugin
-3. **React Frontend** (`app/`) - Chart.js visualization polling the server
+3. **React Frontend** (`app/`) - Vite + React + Recharts + Tailwind visualization polling the server
 
 ## Installation
 
 ```bash
 # Install dependencies
-brew install golang yarn
+brew install golang node
 
 # Build and install the CLAP plugin
 cd AudioTrackerCLAP
@@ -23,7 +23,7 @@ sudo make install  # Installs to /Library/Audio/Plug-Ins/CLAP/
 go run main.go
 
 # Run the frontend
-cd app && yarn install && yarn start
+cd app && npm install && npm run dev
 ```
 
 ## Usage
@@ -31,7 +31,7 @@ cd app && yarn install && yarn start
 1. Start the Go server first: `go run main.go`
 2. Open your DAW (Bitwig, etc.) and add "AudioTracker" as an effect on the track you want to analyze
 3. Play audio - metrics are streamed every 100ms to the server
-4. Open `http://localhost:3000` to view the live chart
+4. Open `http://localhost:5173` to view the live chart
 
 ## Audio Metrics
 

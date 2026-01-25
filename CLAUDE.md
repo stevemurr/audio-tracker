@@ -8,7 +8,7 @@ Audio Tracker is a three-part system for real-time audio analysis during DAW rec
 
 1. **CLAP Audio Plugin** (`AudioTrackerCLAP/`) - C++ plugin using Accelerate framework for FFT analysis
 2. **Go Backend** (`main.go`) - Echo-based HTTP server storing metrics in memory
-3. **React Frontend** (`app/`) - Chart.js visualization polling the server
+3. **React Frontend** (`app/`) - Vite + React + Recharts + Tailwind visualization polling the server
 
 ## Quick Commands
 
@@ -20,13 +20,13 @@ go run main.go
 cd AudioTrackerCLAP && make install
 
 # Run React frontend
-cd app && yarn start
+cd app && npm run dev
 ```
 
 ## Architecture
 
 ```
-Plugin (C++) --HTTP POST--> Server (Go:9091) <--HTTP GET-- Frontend (React:3000)
+Plugin (C++) --HTTP POST--> Server (Go:9091) <--HTTP GET-- Frontend (React:5173)
 ```
 
 The plugin sends audio metrics when silence is detected (audio drops below -50dB threshold for 0.5s). The frontend polls every 1.5 seconds for updates.
@@ -38,7 +38,7 @@ The plugin sends audio metrics when silence is detected (audio drops below -50dB
 | `main.go` | Go server with `/api/audio` endpoints |
 | `AudioTrackerCLAP/src/plugin.cpp` | CLAP plugin with audio analysis and HTTP posting |
 | `AudioTrackerCLAP/Makefile` | Build and install commands |
-| `app/src/App.js` | React chart component |
+| `app/src/App.jsx` | React chart component |
 
 ## API Endpoints
 
